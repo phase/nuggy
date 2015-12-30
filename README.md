@@ -1,2 +1,4 @@
 # nuggy
-Minecraft Client that doesn't suck.
+
+
+Nuggy is an overhaul on the Minecraft client for preformance.
