@@ -1,4 +1,5 @@
 module nuggy;
+import logger;
 import std.file;
 import std.base64;
 import std.json;
@@ -15,7 +16,7 @@ ushort PORT = 25565;
 void parseArguments(char[][] args) {
     foreach(w; args) {
         if(w == "--debug" || w == "-d") {
-            //setDebug(true);
+            setDebug(true);
         }
         else if(w.startsWith("-h=")){
             HOSTNAME = (to!string(w).split("-h="))[1];
