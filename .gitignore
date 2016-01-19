@@ -36,3 +36,7 @@
 .dub/
 .project
 dub.selections.json
+
+# Minecraft
+*.jar
+server/

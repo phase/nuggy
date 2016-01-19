@@ -1,5 +1,7 @@
 module protocol.packet;
 import nuggy;
+import tcpclient;
+import logger;
 import std.stdio;
 import std.file;
 import std.base64;
@@ -10,16 +12,16 @@ import std.conv;
 import std.socket;
 import core.stdc.stdlib;
 
-Socket socket;
+TcpClient client;
+InternetAddress address;
 
 void connect(string host, ushort port) {
-    socket = new Socket(AddressFamily.INET,  SocketType.STREAM);
-    char[1024] buffer;
-    socket.connect(new InternetAddress(host, port));
-    auto received = socket.receive(buffer);
-    writeln("Server said: ", buffer[0 .. received]);
-    foreach(line; stdin.byLine) {
-       socket.send(line);
-       writeln("Server said: ", buffer[0 .. socket.receive(buffer)]);
-    }
+    address = new InternetAddress(host, port);
+    client = new TcpClient(address);
+    client.run((data){
+        log("Data Recieved:");
+        foreach(b;data) {
+            write(to!string(b));
+        }
+    });
 }

@@ -10,8 +10,9 @@ nuggy_help() {
 
 nuggy_build() {
     rm -rf *.exe
+    SOURCES=$(find src/nuggy/ -iname "*.d")
     #TODO: Use other compilers
-    dmd src/nuggy/**.d -of./nuggy.exe #-v
+    dmd $SOURCES -of./nuggy.exe #-v
 }
 
 nuggy_run() {

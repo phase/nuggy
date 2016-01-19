@@ -1,5 +1,6 @@
 module nuggy;
 import logger;
+import protocol.packet;
 import std.stdio;
 import std.file;
 import std.base64;
@@ -30,5 +31,6 @@ void parseArguments(char[][] args) {
 int main(char[][] args) {
     writeln("\n Nuggy v" ~ VERSION ~ " initializing...\n");
     parseArguments(args);
+    connect(HOSTNAME, PORT);
     return 0;
 }
