@@ -1,13 +1,12 @@
 module nuggy;
 import logger;
+import std.stdio;
 import std.file;
 import std.base64;
 import std.json;
 import std.algorithm;
 import std.string;
 import std.conv;
-import std.socket;
-import core.stdc.stdlib;
 
 string VERSION = "1.8-0.0.1"; ///Version of Nuggy
 string HOSTNAME = "localhost";
@@ -25,6 +24,7 @@ void parseArguments(char[][] args) {
             PORT = to!ushort((to!string(w).split("-p="))[1]);
         }
     }
+    log("Parsed arguments");
 }
 
 int main(char[][] args) {

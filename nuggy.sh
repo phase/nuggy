@@ -9,17 +9,17 @@ nuggy_help() {
 }
 
 nuggy_build() {
-    rm -rf dist/
+    rm -rf *.exe
     #TODO: Use other compilers
-    dmd src/*.d -of./dist/nuggy.exe #-v
+    dmd src/nuggy/**.d -of./nuggy.exe #-v
 }
 
 nuggy_run() {
-    if [ -f "/dist/nuggy.exe" ]; then
+    if [ -f "/nuggy.exe" ]; then
         hc_build
     fi
-    if [ ! -f "/dist/nuggy.exe" ]; then
-        dist/nuggy
+    if [ ! -f "/nuggy.exe" ]; then
+        ./nuggy
     fi
 }
 

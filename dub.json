@@ -1,0 +1,6 @@
+{
+	"name" : "nuggy",
+	"description" : "Minecraft Client written in D",
+	"dependencies" : {
+	}
+}

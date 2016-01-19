@@ -31,3 +31,8 @@
 # Debug files
 *.dSYM/
 *.bak
+
+# D
+.dub/
+.project
+dub.selections.json
