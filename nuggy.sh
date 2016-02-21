@@ -12,16 +12,11 @@ nuggy_build() {
     rm -rf *.exe
     SOURCES=$(find src/nuggy/ -iname "*.d")
     #TODO: Use other compilers
-    dmd $SOURCES -of./nuggy.exe #-v
+    dmd $SOURCES -of./nuggy.exe -v
 }
 
 nuggy_run() {
-    if [ -f "/nuggy.exe" ]; then
-        hc_build
-    fi
-    if [ ! -f "/nuggy.exe" ]; then
-        ./nuggy
-    fi
+    ./nuggy -d
 }
 
 nuggy_reboot() {

@@ -21,7 +21,8 @@ void connect(string host, ushort port) {
     client.run((data){
         log("Data Recieved:");
         foreach(b;data) {
-            write(to!string(b));
+            if(b != 0)
+            write(to!string(b) ~ " ");
         }
     });
 }

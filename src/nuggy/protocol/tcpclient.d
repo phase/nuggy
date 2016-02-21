@@ -10,8 +10,9 @@ class TcpListener {
     
     this(InternetAddress ia) {
         socket = new TcpSocket();
-        assert(socket.isAlive);
+        socket.blocking(true);
         socket.setOption(SocketOptionLevel.SOCKET, SocketOption.REUSEADDR, 1);
+        socket.connect(ia);
     }
     
     this(string hostname, ushort port) {
